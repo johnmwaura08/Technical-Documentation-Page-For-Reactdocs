@@ -3,6 +3,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>REACT HOOKS DOCUMENTATION</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <nav id="navbar">
@@ -17,27 +18,125 @@
     <main id="main-doc">
       <section class="main-section" id="Introduction">
         <header>Introduction</header>
-        <p>
-            <ol>
-                <li>
-                    Hooks are a new addition to React 16.8. They allow you to use state
-                    and other react features without writing a class. Its important to
-                    remember that hooks are completely optional and you can try hooks in a
-                    few components wihout re-writing existing code .
-                </li>
-                <li>
-                    Hooks dont replace your knowledge of React concepts but instead provide more direct API to concepts such as props, state, contecxt, refs and lifecycle methods.
+        <p></p>
+        <ol>
+          <li>
+            Hooks are a new addition to React 16.8. They allow you to use state
+            and other react features without writing a class. Its important to
+            remember that hooks are completely optional and you can try hooks in
+            a few components wihout re-writing existing code .
+          </li>
+          <li>
+            Hooks dont replace your knowledge of React concepts but instead
+            provide more direct API to concepts such as props, state, contecxt,
+            refs and lifecycle methods.
+          </li>
+          <li>
+            Hooks allow you to extract stateful logic from a component so it can
+            be tested independently and reused.
+          </li>
+          juu
+          <li>
+            Furthemore, Hooks allow you to reuse stateful logic without changing
+            your component hierachy.
+          </li>
+        </ol>
+      </section>
+      <section id="UseState" class="main-section">
+        <header>Using the State Hook</header>
 
-                </li>
-                <li>
-                    Hooks allow you to extract stateful logic from a component so it can be tested independently and reused.
-                </li>
-                <li>
-                    Furthemore, Hooks allow you to reuse stateful logic without changing your component hierachy. 
-                </li>
-            </ol>
-      
-      
+        <p>
+          A Hook is a special function that lets you "hook into" React features.
+          The <strong>useState</strong> is a hook that lets you add React state
+          to function components.
+        </p>
+        <p>
+          We have to import the <strong>useState</strong> Hook from React first.
+        </p>
+        <pre>
+            <code>
+                import React , {useState} from 'react';
+
+                function myComponent () {
+                    //...
+                }
+            </code>
+        </pre>
+        <p>
+          Since we dont have a <strong>this</strong> in a function component, we
+          can't assign or read <strong>this.state</strong>. Instead we call the
+          <strong>useState</strong> Hook directly inside our component.
+        </p>
+        <pre>
+            <code>
+                import React , {useState} from 'react';
+
+                function myComponent () {
+                    //Declare a new state variable which we'll call count
+
+                    const [count, setCount] = useState(0);
+                }
+            </code>
+        </pre>
+        <p>
+          <strong>useState</strong> declares a "state variable" which is a way
+          to preserve some values between function calls. Normally variables
+          dissappear when the function exits but state variables are preserved
+          by React.
+        </p>
+        <p>
+          The only argument to the <strong>useState()</strong> Hook is the
+          initial state. Unlike with classes the state doesnt have to be an
+          object.We can keep a number or a string if thats all we need. In our
+          example, we just want a number for how many times the user clicked ,
+          so pass <strong>0</strong> as initial state for our variable. (If we
+          wanted to store <strong>two diferent values in state</strong> , we
+          would call <strong>useState() twice.</strong>)
+        </p>
+        <p>
+          The <strong>useState</strong> hook returns two values :
+          <em>the current state</em> and a <em>function that updates it </em> In
+          our example we declared a state variable caled
+          <strong>count</strong> and set it to <strong>0</strong>. React will
+          remember its current value between re-renders and provide the most
+          recent one to our function. If we want to update the current
+          <strong>count</strong>, we can call <strong>setCount</strong>
+        </p>
+        <h3><strong>Reading State</strong></h3>
+        <p>
+          In a class component when we want to display the current count in a
+          class, we read <em>this.state.count</em>
+        </p>
+        <pre>
+            <code>
+                You clicked {this.state.count} times
+            </code>
+        </pre>
+        <p>In a function component we can use <em>count</em> directly</p>
+        <pre>
+            <code>
+                You clicked {count} times 
+            </code>
+        </pre>
+        <h3>Updating State</h3>
+        <p>
+          In a classs component, we need to call <em>this.setState()</em> to
+          update the <em>count</em> state
+        </p>
+        <pre>
+            <code>
+                
+                &lt;button onClick={() => this.setState({ count: this.state.count + 1 })}&gt;
+                    Click Me
+                &lt;/button&gt;
+            </code>
+        </pre>
+        <p>
+          The square brackets are called array destructuring. Declaring state
+          variables as a pair of [something, setSomething] lets us give
+          different names to different state variables if we want to use more
+          than one.
+        </p>
       </section>
     </main>
   </body>
