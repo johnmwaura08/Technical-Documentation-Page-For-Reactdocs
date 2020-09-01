@@ -138,6 +138,53 @@
           than one.
         </p>
       </section>
+      <section id="UseEffect" class="main-section">
+        <header>Using the Effect Hook</header>
+
+        <p>
+          The <strong>Effect Hook</strong> lets you perform side effects in
+          function components
+        </p>
+        <p>
+          The <strong>useEffect</strong> Hook is basically
+          <em> componentDidMount, componentDidUpdate</em> and
+          <em>componentWillUnmount</em> combined.
+        </p>
+        <p>
+          This Hook also lets us express different kinds of side effects after a
+          component renders.
+        </p>
+        <p>Some effects might require cleanup so they return a function</p>
+
+        <pre>
+              <code>
+
+                useEffect(() => {
+                    function handleStatusChange(status) {
+                        setIsOnline(status.isOnline);
+                    }
+                    chatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
+
+                    return() => {
+                    chatAPI.unsubscribeToFriendStatus(props.friend.id, handleStatusChange);
+                        
+                    };
+                });
+              </code>
+          </pre>
+        <p>
+          Other effects might not have a cleanup phase, and dont return
+          anything.
+        </p>
+        <pre>
+              <code>
+                  useEffect(() => {
+                      document.title = `You clicked ${count} times `;
+                  })
+              </code>
+          </pre>
+        <p>The Effect Hook unifies both use cases with a single API</p>
+      </section>
     </main>
   </body>
 </html>
