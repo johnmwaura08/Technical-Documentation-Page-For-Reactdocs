@@ -185,6 +185,18 @@
           </pre>
         <p>The Effect Hook unifies both use cases with a single API</p>
       </section>
+      <section id="Rules" class="main-section">
+          <header>Rules of Hooks</header>
+          <h3><strong> Only Call Hooks at the Top Level </strong></h3>
+          <p>Dont call Hooks inside loops, conditions, or nested functions</p>
+          <p> Using Hooks at the top level of your function esures they are called in the same oreder each time a component renders</p>
+          <p>This is what allows React to correctly preserve the state of Hooks between multiple <em>useState</em> and <em>useEffect</em> calls</p>
+          <h3><strong> Only Call Hooks from React Functions</strong></h3>
+          <p>Dont call Hooks from regular Javascript functions</p>
+          <p>You can call Hooks from React function components or from custom Hooks</p>
+
+          
+      </section>
     </main>
   </body>
 </html>
