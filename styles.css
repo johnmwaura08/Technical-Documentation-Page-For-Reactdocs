@@ -45,3 +45,22 @@ pre {
     padding-top: 14px;
     background-color: #ddd;
 }
+@media (max-width: 600px) {
+    body {
+      flex-direction: column;
+    }
+    
+    nav {
+      border-right: none;
+      border-bottom: 2px solid #777;
+      height: 200px;
+      overflow-y: scroll;
+      width: 100%;
+    }
+    
+    main {
+      height: auto;
+      overflow-y: none;
+      width: 100%;
+    }
+  }
