@@ -1,3 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+     display: flex; /*puts the navbar and main section side by side */
+    margin: auto;
+}
+nav {
+    background-color:#eee;
+    height: 100vh;
+    border-right: 2px solid #777;
+    min-width: 300px;
+}
+
+
+
 
 pre {
     padding-top: 14px;
